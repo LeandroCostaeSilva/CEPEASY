@@ -1,0 +1,306 @@
+/* Estilos para o componente AutocompleteCidade */
+
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.autocomplete-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.autocomplete-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.autocomplete-input:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.autocomplete-sugestoes {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.autocomplete-sugestao {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f3f4;
+  transition: background-color 0.2s ease;
+}
+
+.autocomplete-sugestao:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-sugestao:hover,
+.autocomplete-sugestao.selected {
+  background-color: #f8f9fa;
+}
+
+.autocomplete-sugestao.selected {
+  background-color: #e3f2fd;
+}
+
+.municipio-nome {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 2px;
+}
+
+.municipio-estado {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.autocomplete-no-results,
+.autocomplete-loading {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  z-index: 1000;
+}
+
+.loading-indicator {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Scrollbar personalizada para as sugestões */
+.autocomplete-sugestoes::-webkit-scrollbar {
+  width: 6px;
+}
+
+.autocomplete-sugestoes::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.autocomplete-sugestoes::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.autocomplete-sugestoes::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsividade Melhorada */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+  .autocomplete-input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  
+  .autocomplete-sugestoes {
+    max-height: 280px;
+  }
+}
+
+/* Tablets pequenos e smartphones grandes */
+@media (max-width: 768px) {
+  .autocomplete-input {
+    font-size: 16px; /* Evita zoom no iOS */
+    padding: 16px;
+    border-radius: 10px;
+    min-height: 50px;
+    box-sizing: border-box;
+  }
+  
+  .autocomplete-sugestao {
+    padding: 16px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .autocomplete-sugestoes {
+    max-height: 250px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .municipio-nome {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .municipio-estado {
+    font-size: 14px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .autocomplete-container {
+    width: 100%;
+  }
+  
+  .autocomplete-input {
+    font-size: 16px; /* Evita zoom no iOS */
+    padding: 16px;
+    border-radius: 10px;
+    min-height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .autocomplete-sugestao {
+    padding: 18px 16px;
+    min-height: 60px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .autocomplete-sugestao:hover,
+  .autocomplete-sugestao.selected {
+    background-color: #f8f9fa;
+  }
+  
+  .autocomplete-sugestoes {
+    max-height: 200px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .municipio-nome {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .municipio-estado {
+    font-size: 13px;
+    color: #6c757d;
+  }
+  
+  .autocomplete-no-results,
+  .autocomplete-loading {
+    padding: 20px 16px;
+    font-size: 14px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .loading-indicator {
+    right: 16px;
+  }
+  
+  .spinner {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Smartphones muito pequenos */
+@media (max-width: 360px) {
+  .autocomplete-input {
+    padding: 14px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+  
+  .autocomplete-sugestao {
+    padding: 16px 14px;
+    min-height: 56px;
+  }
+  
+  .municipio-nome {
+    font-size: 14px;
+  }
+  
+  .municipio-estado {
+    font-size: 12px;
+  }
+  
+  .autocomplete-no-results,
+  .autocomplete-loading {
+    padding: 18px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Estados de loading */
+.autocomplete-input.loading {
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%23007bff"><animate attributeName="r" values="3;6;3" dur="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/></circle></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px 20px;
+  padding-right: 40px;
+}
+
+/* Animações */
+.autocomplete-sugestoes {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

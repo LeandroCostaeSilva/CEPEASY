@@ -1,0 +1,539 @@
+/* Estilos para o componente BuscaCEP */
+.busca-cep-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.busca-cep-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.titulo {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Seletor de tipo de busca */
+.tipo-busca {
+  display: flex;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-tipo {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: #f8f9fa;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-tipo:hover {
+  background: #e9ecef;
+}
+
+.btn-tipo.ativo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Formulário */
+.formulario {
+  margin-bottom: 30px;
+}
+
+.campo {
+  margin-bottom: 20px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.input-cep,
+.input-texto {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input-cep:focus,
+.input-texto:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Botões */
+.botoes {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-buscar,
+.btn-limpar {
+  flex: 1;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-buscar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-buscar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.btn-buscar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-limpar {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-limpar:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(108, 117, 125, 0.3);
+}
+
+/* Mensagem de erro */
+.erro {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border: 1px solid #f5c6cb;
+}
+
+.erro p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.sucesso {
+  background-color: #efe;
+  border: 1px solid #cfc;
+  color: #3c3;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Resultado único */
+.resultado {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 25px;
+}
+
+.resultado h3 {
+  color: #155724;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.dados-endereco p {
+  margin: 10px 0;
+  color: #155724;
+  font-size: 1rem;
+}
+
+.dados-endereco strong {
+  color: #0c4128;
+}
+
+/* Múltiplos resultados */
+.resultados {
+  margin-top: 25px;
+}
+
+.resultados h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.dados-busca {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.dados-busca p {
+  margin: 5px 0;
+  color: #1565c0;
+}
+
+.dados-busca strong {
+  color: #0d47a1;
+}
+
+.lista-resultados {
+  display: grid;
+  gap: 15px;
+}
+
+.item-resultado {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.item-resultado:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item-resultado p {
+  margin: 8px 0;
+  color: #495057;
+}
+
+.item-resultado strong {
+  color: #212529;
+}
+
+/* Responsividade Melhorada */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+  .busca-cep-container {
+    padding: 15px;
+  }
+  
+  .busca-cep-card {
+    max-width: 90%;
+    padding: 35px;
+  }
+}
+
+/* Tablets pequenos e smartphones grandes */
+@media (max-width: 768px) {
+  .busca-cep-container {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .busca-cep-card {
+    padding: 25px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  /* Melhorias nos botões de tipo de busca */
+  .tipo-busca {
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+  
+  .btn-tipo {
+    border-radius: 0;
+    padding: 18px 20px;
+    font-size: 1.1rem;
+  }
+  
+  .btn-tipo:first-child {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .btn-tipo:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+  
+  /* Melhorias nos formulários */
+  .formulario {
+    gap: 20px;
+  }
+  
+  .campo {
+    margin-bottom: 20px;
+  }
+  
+  .campo label {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  /* Melhorias nos botões */
+  .botoes {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  .btn-buscar,
+  .btn-limpar {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+  }
+  
+  /* Melhorias nos resultados */
+  .resultado,
+  .resultados {
+    margin-top: 30px;
+  }
+  
+  .dados-busca {
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+  }
+  
+  .dados-busca p {
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+  
+  .item-resultado {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+  }
+  
+  .item-resultado p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .busca-cep-container {
+    padding: 8px;
+    padding-top: 15px;
+  }
+  
+  .busca-cep-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .titulo {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Campos de input otimizados para mobile */
+  .input-cep,
+  .input-texto {
+    padding: 16px;
+    font-size: 16px; /* Evita zoom no iOS */
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Autocomplete otimizado */
+  .autocomplete-container {
+    position: relative;
+  }
+  
+  .autocomplete-input {
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .autocomplete-sugestoes {
+    max-height: 200px;
+    border-radius: 8px;
+  }
+  
+  .autocomplete-item {
+    padding: 15px;
+    font-size: 15px;
+  }
+  
+  /* Botões otimizados para touch */
+  .btn-tipo {
+    padding: 20px;
+    font-size: 1rem;
+    min-height: 50px;
+  }
+  
+  .btn-buscar,
+  .btn-limpar {
+    padding: 18px 20px;
+    font-size: 1rem;
+    min-height: 50px;
+    border-radius: 10px;
+  }
+  
+  /* Resultados otimizados */
+  .dados-busca {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .dados-busca p {
+    font-size: 0.95rem;
+    margin: 6px 0;
+  }
+  
+  .item-resultado {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .item-resultado p {
+    font-size: 0.95rem;
+    margin: 8px 0;
+  }
+  
+  /* Mensagens de erro e sucesso */
+  .erro,
+  .sucesso {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Smartphones muito pequenos */
+@media (max-width: 360px) {
+  .busca-cep-card {
+    padding: 15px;
+  }
+  
+  .titulo {
+    font-size: 1.6rem;
+  }
+  
+  .btn-tipo {
+    padding: 18px 15px;
+    font-size: 0.95rem;
+  }
+  
+  .input-cep,
+  .input-texto,
+  .autocomplete-input {
+    padding: 14px;
+    font-size: 16px;
+  }
+  
+  .btn-buscar,
+  .btn-limpar {
+    padding: 16px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resultado,
+.resultados,
+.erro {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading state */
+.btn-buscar:disabled {
+  position: relative;
+}
+
+.btn-buscar:disabled::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
